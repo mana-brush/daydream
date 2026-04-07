@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://vt43hq546oqu"]
+
+[ext_resource type="Texture2D" uid="uid://cpjviw63dlkh0" path="res://art/choose-dreamer-background.png" id="1_7s30k"]
+[ext_resource type="Texture2D" uid="uid://b4x8rg7fhw6bm" path="res://art/choose-dreamer-text.png" id="1_odolu"]
+[ext_resource type="Texture2D" uid="uid://bnko6g4degbm2" path="res://art/boy-sprite.png" id="2_7s30k"]
+[ext_resource type="Texture2D" uid="uid://c1x6r22sgvw5c" path="res://art/girl-sprite.png" id="3_obbki"]
+[ext_resource type="Texture2D" uid="uid://c36hcwaovkn5r" path="res://art/return-text.png" id="4_f2382"]
+[ext_resource type="Script" uid="uid://e5ka0yh5pum2" path="res://menu-text.gd" id="5_obbki"]
+
+[node name="ChooseDreamer" type="MarginContainer" unique_id=1435607367]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="Background" type="TextureRect" parent="." unique_id=1164836984]
+layout_mode = 2
+texture = ExtResource("1_7s30k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1163128463]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=914800182]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=879298674]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="TitleContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer" unique_id=1124765330]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MarginContainer/TitleContainer" unique_id=855288591]
+layout_mode = 2
+texture = ExtResource("1_odolu")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=528171101]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer2" unique_id=753827580]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 75
+
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=2023446443]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer" unique_id=1640148647]
+layout_mode = 2
+texture = ExtResource("2_7s30k")
+
+[node name="BoxContainer2" type="BoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1772161915]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer2" unique_id=1494307861]
+layout_mode = 2
+texture = ExtResource("3_obbki")
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1217776533]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ReturnContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer3" unique_id=521382078]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+script = ExtResource("5_obbki")
+menu_state = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MarginContainer3/ReturnContainer" unique_id=638124928]
+layout_mode = 2
+texture = ExtResource("4_f2382")
+
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/MarginContainer3/ReturnContainer" to="HBoxContainer/VBoxContainer/MarginContainer3/ReturnContainer" method="_on_gui_input"]

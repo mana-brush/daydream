@@ -1,18 +1,20 @@
 [gd_scene format=3 uid="uid://bdysqmbx7er8y"]
 
 [ext_resource type="Texture2D" uid="uid://crjo4j6wtfe2t" path="res://art/spring-background.png" id="1_jix8l"]
-[ext_resource type="Texture2D" uid="uid://dysavvxlyptt0" path="res://art/start-text.png" id="2_glbon"]
 [ext_resource type="Texture2D" uid="uid://de5r3467mn3c7" path="res://art/flower-icon.png" id="2_nlkkf"]
-[ext_resource type="Texture2D" uid="uid://k1pwktys41yo" path="res://art/options-text.png" id="3_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://blo1rs6wjuo2x" path="res://art/start-text-black.png" id="3_nlkkf"]
 [ext_resource type="Script" uid="uid://e5ka0yh5pum2" path="res://menu-text.gd" id="4_8qtwp"]
-[ext_resource type="Texture2D" uid="uid://dtjdprnpvu6yb" path="res://art/exit-text.png" id="4_qe12f"]
+[ext_resource type="Texture2D" uid="uid://cplf8otvexn80" path="res://art/options-text-black.png" id="5_qe12f"]
+[ext_resource type="Texture2D" uid="uid://bjblvqiouni36" path="res://art/exit-text-black.png" id="6_8qtwp"]
 
-[node name="MarginContainer" type="MarginContainer" unique_id=300219251]
+[node name="MainMenu" type="MarginContainer" unique_id=300219251]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
@@ -26,7 +28,7 @@ texture = ExtResource("1_jix8l")
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1704944281]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 4
 theme_override_constants/separation = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1206776434]
@@ -34,59 +36,71 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
-theme_override_constants/separation = 1
+theme_override_constants/separation = 25
 
-[node name="StartTextContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1849134175]
+[node name="StartTextContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1849134175 node_paths=PackedStringArray("flower_icon")]
 layout_mode = 2
-
-[node name="StartText" type="TextureRect" parent="HBoxContainer/VBoxContainer/StartTextContainer" unique_id=1449445456 node_paths=PackedStringArray("flower_icon")]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-texture = ExtResource("2_glbon")
-stretch_mode = 2
+mouse_default_cursor_shape = 2
 script = ExtResource("4_8qtwp")
-flower_icon = NodePath("../FlowerIcon")
+flower_icon = NodePath("FlowerIcon")
 
-[node name="FlowerIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer/StartTextContainer" unique_id=785494011]
-layout_mode = 2
-texture = ExtResource("2_nlkkf")
-
-[node name="OptionTextContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1706533871]
-layout_mode = 2
-
-[node name="OptionsText" type="TextureRect" parent="HBoxContainer/VBoxContainer/OptionTextContainer" unique_id=1580795328 node_paths=PackedStringArray("flower_icon")]
+[node name="StartText" type="TextureRect" parent="HBoxContainer/VBoxContainer/StartTextContainer" unique_id=1449445456]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("3_nlkkf")
 stretch_mode = 2
-script = ExtResource("4_8qtwp")
-flower_icon = NodePath("../FlowerIcon")
 
-[node name="FlowerIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer/OptionTextContainer" unique_id=1650751582]
+[node name="FlowerIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer/StartTextContainer" unique_id=785494011]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_nlkkf")
 
-[node name="ExitTextContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1708963963]
+[node name="OptionTextContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1706533871 node_paths=PackedStringArray("flower_icon")]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("4_8qtwp")
+flower_icon = NodePath("FlowerIcon")
+menu_state = 1
 
-[node name="ExitText" type="TextureRect" parent="HBoxContainer/VBoxContainer/ExitTextContainer" unique_id=1314625083 node_paths=PackedStringArray("flower_icon")]
+[node name="OptionsText" type="TextureRect" parent="HBoxContainer/VBoxContainer/OptionTextContainer" unique_id=1580795328]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("4_qe12f")
+texture = ExtResource("5_qe12f")
 stretch_mode = 2
-script = ExtResource("4_8qtwp")
-flower_icon = NodePath("../FlowerIcon")
 
-[node name="FlowerIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer/ExitTextContainer" unique_id=402872206]
+[node name="FlowerIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer/OptionTextContainer" unique_id=1650751582]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_nlkkf")
 
-[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/StartTextContainer/StartText" to="HBoxContainer/VBoxContainer/StartTextContainer/StartText" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/StartTextContainer/StartText" to="HBoxContainer/VBoxContainer/StartTextContainer/StartText" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/OptionTextContainer/OptionsText" to="HBoxContainer/VBoxContainer/OptionTextContainer/OptionsText" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/OptionTextContainer/OptionsText" to="HBoxContainer/VBoxContainer/OptionTextContainer/OptionsText" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ExitTextContainer/ExitText" to="HBoxContainer/VBoxContainer/ExitTextContainer/ExitText" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/ExitTextContainer/ExitText" to="HBoxContainer/VBoxContainer/ExitTextContainer/ExitText" method="_on_mouse_exited"]
+[node name="ExitTextContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1708963963 node_paths=PackedStringArray("flower_icon")]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("4_8qtwp")
+flower_icon = NodePath("FlowerIcon")
+menu_state = 4
+
+[node name="ExitText" type="TextureRect" parent="HBoxContainer/VBoxContainer/ExitTextContainer" unique_id=1314625083]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("6_8qtwp")
+stretch_mode = 2
+
+[node name="FlowerIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer/ExitTextContainer" unique_id=402872206]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_nlkkf")
+
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/StartTextContainer" to="HBoxContainer/VBoxContainer/StartTextContainer" method="_on_gui_input"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/StartTextContainer" to="HBoxContainer/VBoxContainer/StartTextContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/StartTextContainer" to="HBoxContainer/VBoxContainer/StartTextContainer" method="_on_mouse_exited"]
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/OptionTextContainer" to="HBoxContainer/VBoxContainer/OptionTextContainer" method="_on_gui_input"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/OptionTextContainer" to="HBoxContainer/VBoxContainer/OptionTextContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/OptionTextContainer" to="HBoxContainer/VBoxContainer/OptionTextContainer" method="_on_mouse_exited"]
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/ExitTextContainer" to="HBoxContainer/VBoxContainer/ExitTextContainer" method="_on_gui_input"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ExitTextContainer" to="HBoxContainer/VBoxContainer/ExitTextContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/ExitTextContainer" to="HBoxContainer/VBoxContainer/StartTextContainer" method="_on_mouse_exited"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/ExitTextContainer" to="HBoxContainer/VBoxContainer/ExitTextContainer" method="_on_mouse_exited"]
