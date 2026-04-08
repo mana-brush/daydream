@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cpjviw63dlkh0" path="res://art/choose-dreamer-background.png" id="1_7s30k"]
 [ext_resource type="Texture2D" uid="uid://b4x8rg7fhw6bm" path="res://art/choose-dreamer-text.png" id="1_odolu"]
 [ext_resource type="Texture2D" uid="uid://bnko6g4degbm2" path="res://art/boy-sprite.png" id="2_7s30k"]
+[ext_resource type="Script" uid="uid://dlc45ljr3gsa8" path="res://scenes/choose_dreamer/choose_dreamer.gd" id="3_f2382"]
 [ext_resource type="Texture2D" uid="uid://c1x6r22sgvw5c" path="res://art/girl-sprite.png" id="3_obbki"]
 [ext_resource type="Texture2D" uid="uid://c36hcwaovkn5r" path="res://art/return-text.png" id="4_f2382"]
 [ext_resource type="Script" uid="uid://e5ka0yh5pum2" path="res://menu-text.gd" id="5_obbki"]
@@ -66,6 +67,8 @@ theme_override_constants/separation = 75
 [node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=2023446443]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+script = ExtResource("3_f2382")
+dreamer = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer" unique_id=1640148647]
 layout_mode = 2
@@ -74,6 +77,7 @@ texture = ExtResource("2_7s30k")
 [node name="BoxContainer2" type="BoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1772161915]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+script = ExtResource("3_f2382")
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer2" unique_id=1494307861]
 layout_mode = 2
@@ -98,4 +102,6 @@ menu_state = 3
 layout_mode = 2
 texture = ExtResource("4_f2382")
 
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer" to="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer" method="_on_gui_input"]
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer2" to="HBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer/BoxContainer2" method="_on_gui_input"]
 [connection signal="gui_input" from="HBoxContainer/VBoxContainer/MarginContainer3/ReturnContainer" to="HBoxContainer/VBoxContainer/MarginContainer3/ReturnContainer" method="_on_gui_input"]

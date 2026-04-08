@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://duqqdt1i633xr"]
 
 [ext_resource type="Texture2D" uid="uid://d2bmphc2kmf2" path="res://art/home-background.png" id="1_5q1ba"]
+[ext_resource type="Script" uid="uid://dvrtfum7fhb31" path="res://scenes/home/home.gd" id="1_ng36q"]
+[ext_resource type="Script" uid="uid://cleua1jgngvxg" path="res://scenes/character/character.gd" id="3_vut6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqp2i"]
+size = Vector2(1279, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vest7"]
+size = Vector2(64, 64)
 
 [node name="Home" type="MarginContainer" unique_id=1955127783]
 anchors_preset = 15
@@ -12,7 +20,24 @@ theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
+script = ExtResource("1_ng36q")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1848410304]
+[node name="Background" type="TextureRect" parent="." unique_id=1848410304]
 layout_mode = 2
 texture = ExtResource("1_5q1ba")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1967281353]
+position = Vector2(772, 726)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1381270680]
+position = Vector2(-11.5, 1.5)
+shape = SubResource("RectangleShape2D_uqp2i")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1622180071]
+position = Vector2(772, 602)
+script = ExtResource("3_vut6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=817958635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1038987028]
+shape = SubResource("RectangleShape2D_vest7")
